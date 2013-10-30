@@ -1,0 +1,59 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title RPS
+    %link{:href => "public/css/bootstrap.css", :rel => "stylesheet"}
+    %link{:href => "public/css/bootstrap-responsive.css", :rel => "stylesheet"}
+    %link{:href => "public/css/style.css", :rel => "stylesheet"}
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+      .container
+        %h2
+          - throws.map do |x|
+            %a{:href => "?choice=#{x}"} 
+              - if ("#{x}" == 'rock')               
+                %button.btn.btn-danger{type: "button"} Rock
+              - elsif ("#{x}" == 'paper')
+                %button.btn.btn-danger{type: "button"} Paper
+              - elsif ("#{x}" == 'scissors')
+                %button.btn.btn-danger{type: "button"} Scissors
+        %h1= inicio
+      .container
+        %center 
+        
+          .row.span8
+            - if (anwser == 'Empate')
+              %h1 Jugadores Empatados
+              %img{:src => 'http://pad3.whstatic.com/images/thumb/e/ed/42597-3-bullet-5.jpg/550px-42597-3-bullet-5.jpg', :alt => 'TIE'}
+            - elsif (anwser == 'Ganar')
+              %h1 Ganaste; #{player_throw} vence a #{computer_throw}.
+              %img{:src => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdNEnRciWkn3mNMZ1faZV7pBt_eMymPbdXBOh7_vYiZ44QaVP2yw', :alt => 'WIN'}
+            - elsif (anwser == 'Perder')
+              %h1 Ouch Perdiste; #{computer_throw} vence a #{player_throw}.
+              %img{:src => 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT0zDnaeNgge33_RDPTEzNePEGsxYGXTY3ALZt4arM9b-WYuYlh', :alt => 'LOSE'}
+      .container        
+        %a{:href => '/'} 
+          %button.btn.btn-success{type: "button"} Volver a Empezar
+      .row.span12
+        %center
+          %form.form-inline
+            %label
+              %h5 Partidas 
+              %input.input-small{name: "Part", type: "text", value: "#{play}"}
+              %br
+            %label
+              %h5 Ganadas 
+              %input.input-small{name: "Gana", type: "text", value: "#{win}"}
+              %br
+            %label
+              %h5 Perdidas 
+              %input.input-small{name: "Perd", type: "text", value: "#{lost}"}
+              %br
+            %label  
+              %h5 Empatadas 
+              %input.input-small{name: "Empa", type: "text", value: "#{tie}"}
+          
+    %script{:src => "/js/bootstrap.js"}
+   
