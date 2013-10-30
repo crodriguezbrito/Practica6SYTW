@@ -11,7 +11,7 @@ Despliegue en Heroku (subir practica a heroku)
 
 2. Ejecución de la práctica
 ---------------------------
-## Ejecucion práctica
+
 Para ejecutar la práctica podemos hacer `rake`
 Podemos acceder a la direccion http://agile-spire-6043.herokuapp.com/
 3. Vista 
